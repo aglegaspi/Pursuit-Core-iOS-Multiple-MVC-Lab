@@ -19,12 +19,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let zooAnimal = zooAnimals[indexPath.row]
         
-        var cell = UITableViewCell()
+        if let cell = animalTableView.dequeueReusableCell(withIdentifier: "animalCell") as? AnimalTableViewCell {
+            
+            cell.animalName.text = zooAnimal.name
+            cell.animalOrigin.text = zooAnimal.origin
+            cell.animalClassification.text = zooAnimal.classification
+            cell.animalImage.image = UIImage(named: String(zooAnimal.imageNumber))
+            
+            return cell
+            
+        } else {
+            return UITableViewCell()
+        }
         
-        return cell
+        
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 160
+    }
     
     
     override func viewDidLoad() {
@@ -33,13 +48,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         animalTableView.dataSource = self
         animalTableView.delegate = self
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 
