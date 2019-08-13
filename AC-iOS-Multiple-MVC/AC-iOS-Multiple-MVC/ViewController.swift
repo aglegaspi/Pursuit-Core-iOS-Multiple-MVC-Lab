@@ -55,6 +55,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let segueIdentifier = segue.identifier else { fatalError("No identifier on segue") }
+        
+        switch segueIdentifier {
+            
+        case "animalDetail":
+            guard let animalDetail = segue.destination as? AnimalViewController else {
+                fatalError("Unexpected segue VC")
+            }
+            guard let selectedIndexPath = animalTableView.indexPathForSelectedRow else {
+                fatalError("No row was selected")
+            }
+            animalDetail.animal = zooAnimals[selectedIndexPath.row]
+        default:
+            fatalError("Unexpected segue identifier")
+        }
+    }
     
 }
 

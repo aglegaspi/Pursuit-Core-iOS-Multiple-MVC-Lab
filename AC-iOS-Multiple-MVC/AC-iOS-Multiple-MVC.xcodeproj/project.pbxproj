@@ -13,6 +13,7 @@
 		DE07F5661FAB611300DA3ABA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE07F5651FAB611300DA3ABA /* Assets.xcassets */; };
 		DE07F5691FAB611300DA3ABA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE07F5671FAB611300DA3ABA /* LaunchScreen.storyboard */; };
 		DE07F5711FAB627600DA3ABA /* ZooAnimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE07F5701FAB627600DA3ABA /* ZooAnimal.swift */; };
+		EC1B8E7D23035A1B004A1B0E /* AnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1B8E7C23035A1B004A1B0E /* AnimalViewController.swift */; };
 		ECF4E1CA2303494100382EB0 /* AnimalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF4E1C92303494100382EB0 /* AnimalTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		DE07F5681FAB611300DA3ABA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE07F56A1FAB611300DA3ABA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE07F5701FAB627600DA3ABA /* ZooAnimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooAnimal.swift; sourceTree = "<group>"; };
+		EC1B8E7C23035A1B004A1B0E /* AnimalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalViewController.swift; sourceTree = "<group>"; };
 		ECF4E1C92303494100382EB0 /* AnimalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				DE07F5701FAB627600DA3ABA /* ZooAnimal.swift */,
+				EC1B8E7C23035A1B004A1B0E /* AnimalViewController.swift */,
 				DE07F5601FAB611300DA3ABA /* ViewController.swift */,
 				DE07F5621FAB611300DA3ABA /* Main.storyboard */,
 				ECF4E1C92303494100382EB0 /* AnimalTableViewCell.swift */,
@@ -150,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC1B8E7D23035A1B004A1B0E /* AnimalViewController.swift in Sources */,
 				DE07F5611FAB611300DA3ABA /* ViewController.swift in Sources */,
 				ECF4E1CA2303494100382EB0 /* AnimalTableViewCell.swift in Sources */,
 				DE07F5711FAB627600DA3ABA /* ZooAnimal.swift in Sources */,
