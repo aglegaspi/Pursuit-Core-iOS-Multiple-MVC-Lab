@@ -15,7 +15,34 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var animalTableView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return zooAnimals.count
+        switch section {
+        case 0:
+            return ZooAnimal.mammals.count
+        case 1:
+            return ZooAnimal.reptiles.count
+        case 2:
+            return ZooAnimal.birds.count
+        case 3:
+            return ZooAnimal.insects.count
+        default:
+            return 0
+        }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section{
+        case 0:
+            return "Mammals"
+        case 1:
+            return "Reptiles"
+        case 2:
+            return "Birds"
+        case 3:
+            return "Insects"
+        default:
+            return "It's something"
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
