@@ -87,42 +87,55 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return UITableViewCell()
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 160
-    }
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        animalTableView.dataSource = self
-        animalTableView.delegate = self
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        guard let segueIdentifier = segue.identifier else { fatalError("No identifier on segue") }
-        
-        switch segueIdentifier {
-            
-        case "animalDetail":
-            guard let animalDetail = segue.destination as? AnimalViewController else {
-                fatalError("Unexpected segue VC")
-            }
-            guard let selectedIndexPath = animalTableView.indexPathForSelectedRow else {
-                fatalError("No row was selected")
-            }
-            animalDetail.animal = zooAnimals[selectedIndexPath.row]
-        default:
-            fatalError("Unexpected segue identifier")
-        }
-    }
-    
+
+
+func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 160
 }
+
+func numberOfSections(in tableView: UITableView) -> Int {
+    return 4
+}
+
+
+
+override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    animalTableView.dataSource = self
+    animalTableView.delegate = self
+}
+
+override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    
+    // Dispose of any resources that can be recreated.
+}
+
+
+
+override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+    guard let segueIdentifier = segue.identifier else { fatalError("No identifier on segue") }
+    
+    switch segueIdentifier {
+        
+    case "animalDetail":
+        guard let animalDetail = segue.destination as? AnimalViewController else {
+            fatalError("Unexpected segue VC")
+        }
+        guard let selectedIndexPath = animalTableView.indexPathForSelectedRow else {
+            fatalError("No row was selected")
+        }
+        animalDetail.animal = ZooAnimal.allAnimals[selectedIndexPath.section][selectedIndexPath.row]
+        // we need the section and the row from the static array of all the filtered animals
+    default:
+        fatalError("Unexpected segue identifier")
+    }
+}
+}
+
+
 
