@@ -46,22 +46,45 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let zooAnimal = zooAnimals[indexPath.row]
-        
         if let cell = animalTableView.dequeueReusableCell(withIdentifier: "animalCell") as? AnimalTableViewCell {
-            
-            cell.animalName.text = zooAnimal.name
-            cell.animalOrigin.text = zooAnimal.origin
-            cell.animalClassification.text = zooAnimal.classification
-            cell.animalImage.image = UIImage(named: String(zooAnimal.imageNumber))
-            
-            return cell
-            
-        } else {
-            return UITableViewCell()
+            switch indexPath.section {
+            case 0:
+                let mammal = ZooAnimal.mammals[indexPath.row]
+                cell.animalName.text = mammal.name
+                cell.animalOrigin.text = mammal.origin
+                cell.animalClassification.text = mammal.classification
+                cell.animalImage.image = UIImage(named: String(mammal.imageNumber))
+                return cell
+                
+            case 1:
+                let reptile = ZooAnimal.reptiles[indexPath.row]
+                cell.animalName.text = reptile.name
+                cell.animalOrigin.text = reptile.origin
+                cell.animalClassification.text = reptile.classification
+                cell.animalImage.image = UIImage(named: String(reptile.imageNumber))
+                return cell
+            case 2:
+                let bird = ZooAnimal.birds[indexPath.row]
+                cell.animalName.text = bird.name
+                cell.animalOrigin.text = bird.origin
+                cell.animalClassification.text = bird.classification
+                cell.animalImage.image = UIImage(named: String(bird.imageNumber))
+                return cell
+                
+            case 3:
+                let insect = ZooAnimal.insects[indexPath.row]
+                cell.animalName.text = insect.name
+                cell.animalOrigin.text = insect.origin
+                cell.animalClassification.text = insect.classification
+                cell.animalImage.image = UIImage(named: String(insect.imageNumber))
+                return cell
+                
+            default:
+                break
+            }
         }
         
-        
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
